@@ -49,6 +49,7 @@
 				"43343986-6e11-0121-a076-3703a16fc6d4",
 				"c57fc6f6-f809-409a-2269-90e4a36fbb8e",
 				"06826a2b-6244-ee6d-5bde-6efcb18e3d8c",
+				"8eefdaad-6ba8-6e59-dddc-9ae3dc9323c6",
 				"e17232e4-73fe-5924-4561-6e34a56e4795",
 				"c3ad9b85-66fb-0ca3-1c5f-2e4cb476db70",
 				"fcadf153-a92d-41ba-4877-bf3747919ae9",
@@ -229,11 +230,11 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1448701663765,
+			"time": 1448851149099,
 			"name": "snapshot-create",
 			"description": "创建虚拟机快照",
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
-			"rawModeData": "{\r\n    \"createImage\": {\r\n        \"name\": \"restful-snapshot\",\r\n        \"metadata\": {\r\n            \"instance_uuid\": \"1234\"\r\n        }\r\n    }\r\n}"
+			"rawModeData": "{\r\n    \"createImage\": {\r\n        \"name\": \"server1-snapshot\",\r\n        \"metadata\": {\r\n            \"instance_uuid\": \"1234\"\r\n        }\r\n    }\r\n}"
 		},
 		{
 			"id": "2359bbfa-2b25-db9d-5754-ba830e5039b0",
@@ -743,6 +744,25 @@
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
 		},
 		{
+			"id": "8eefdaad-6ba8-6e59-dddc-9ae3dc9323c6",
+			"headers": "Content-Type: application/json\nX-Auth-Token: {{X-Auth-Token}}\n",
+			"url": "http://{{controller}}:8774/v2/{{tenant-id}}/servers",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1448872054056,
+			"name": "server-create-based-on-snapshot",
+			"description": "",
+			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
+			"rawModeData": "{\r\n    \"server\": {\r\n        \"name\": \"server-based-on-snapshot\", \r\n        \"imageRef\": \"http://172.16.6.110:9292/v2/images/1b98e3c6-5838-4e7d-ae3f-3ba573d3fd52\", \r\n        \"flavorRef\": \"2\",\r\n        \"metadata\": {\r\n            \"imageName\": \"Apache1\"\r\n        },\r\n        \"networks\": [\r\n            {\r\n                \"uuid\": \"{{network-id}}\"\r\n            }\r\n        ]\r\n    }\r\n}"
+		},
+		{
 			"folder": "039b264f-10f0-f1aa-57b4-29d409399800",
 			"id": "928f52e1-4b00-50cd-dab8-614a45f8fb54",
 			"name": "floating-ip-pool-list",
@@ -1039,11 +1059,11 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1448614063848,
+			"time": 1448872071114,
 			"name": "server-create",
 			"description": "",
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
-			"rawModeData": "{\r\n    \"server\": {\r\n        \"name\": \"new-server-demo4\", \r\n        \"imageRef\": \"http://172.16.6.90:9292/v2/images/03d81f5c-ca73-4368-a4fb-aed74e5ab1ce\", \r\n        \"flavorRef\": \"1\", \r\n        \"networks\": [\r\n            {\r\n                \"uuid\": \"{{network-id}}\"\r\n            }\r\n        ]\r\n    }\r\n}"
+			"rawModeData": "{\r\n    \"server\": {\r\n        \"name\": \"server-based-on-snapshot\", \r\n        \"imageRef\": \"http://172.16.6.110:9292/v2/images/1b98e3c6-5838-4e7d-ae3f-3ba573d3fd52\", \r\n        \"flavorRef\": \"2\", \r\n        \"metadata\": {\r\n            \"imageName\": \"Apache1\"\r\n        },\r\n        \"networks\": [\r\n            {\r\n                \"uuid\": \"{{network-id}}\"\r\n            }\r\n        ]\r\n    }\r\n}"
 		},
 		{
 			"folder": "187314b4-2412-716e-db30-6dd465654d9d",
