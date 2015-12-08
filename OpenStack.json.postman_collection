@@ -158,7 +158,13 @@
 				"1c3045a5-12a7-c0eb-2c1b-8aadf07849b6",
 				"21e0da70-8571-78a6-600a-217dac224bd2",
 				"836c258d-d4be-67f8-b717-127c0ba7b0d8",
-				"217c4e21-a164-c676-b71a-ffc5f705c883"
+				"217c4e21-a164-c676-b71a-ffc5f705c883",
+				"6281cd33-3903-89be-3353-e58fcb901707",
+				"267442cf-5986-2df5-d5e7-1fe6d3ad4b1c",
+				"696fdf02-7bdd-e450-1c73-ea3a88bf3c82",
+				"a409fc18-0f70-877b-dd19-fc03581d0fcb",
+				"9467fdb7-3775-1813-996c-7b07f137d17a",
+				"d309391e-f8f3-7a20-7e3d-0dcfabad1622"
 			],
 			"owner": "220378",
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
@@ -426,6 +432,24 @@
 			"time": 1449197729036,
 			"name": "pools-list",
 			"description": "列出所有pool",
+			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
+		},
+		{
+			"id": "267442cf-5986-2df5-d5e7-1fe6d3ad4b1c",
+			"headers": "Content-Type: application/json\nX-Auth-Token: {{X-Auth-Token}}\n",
+			"url": "http://{{controller}}:9696/v2.0/lb/health_monitors",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1449547148328,
+			"name": "monitor-list",
+			"description": "列出所有监控",
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
 		},
 		{
@@ -859,6 +883,25 @@
 			"folder": "d2743ef8-1876-d807-c3bc-be36b50d8dea"
 		},
 		{
+			"id": "6281cd33-3903-89be-3353-e58fcb901707",
+			"headers": "Content-Type: application/json\nX-Auth-Token: {{X-Auth-Token}}\n",
+			"url": "http://{{controller}}:9696/v2.0/lb/health_monitors",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1449549685637,
+			"name": "monitor-create",
+			"description": "创建监控",
+			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
+			"rawModeData": "{\r\n    \"health_monitor\": {\r\n        \"delay\": \"3\",\r\n        \"max_retries\": \"3\",\r\n        \"type\": \"PING\",\r\n        \"timeout\": \"10\",\r\n        \"admin_state_up\": true\r\n    }\r\n}"
+		},
+		{
 			"id": "64f72704-f77f-1d4d-e92d-87650b8c6368",
 			"headers": "Content-Type: application/json\nX-Auth-Token: {{X-Auth-Token}}\n",
 			"url": "http://{{controller}}:8776/v2/{{tenant-id}}/snapshots",
@@ -895,6 +938,24 @@
 			"description": "确认更改配置",
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
 			"rawModeData": "{\r\n    \"confirmResize\": null\r\n}"
+		},
+		{
+			"id": "696fdf02-7bdd-e450-1c73-ea3a88bf3c82",
+			"headers": "Content-Type: application/json\nX-Auth-Token: {{X-Auth-Token}}\n",
+			"url": "http://{{controller}}:9696/v2.0/lb/health_monitors/{{monitor-id}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1449547125709,
+			"name": "monitor-delete",
+			"description": "删除监控",
+			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
 		},
 		{
 			"id": "6b952d41-5587-b675-7bcd-7248ecffaf02",
@@ -1234,6 +1295,25 @@
 			"rawModeData": "{\r\n    \"addFloatingIp\": {\r\n        \"fixed_address\": \"166.78.185.201\",\r\n        \"address\": \"172.24.4.225\"\r\n    }\r\n}"
 		},
 		{
+			"id": "9467fdb7-3775-1813-996c-7b07f137d17a",
+			"headers": "Content-Type: application/json\nX-Auth-Token: {{X-Auth-Token}}\n",
+			"url": "http://{{controller}}:9696/v2.0/lb/pools/{{lb-pool-id}}/health_monitors/{{monitor-id}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1449549810046,
+			"name": "monitor-disassociate-pool",
+			"description": "池和监控解绑",
+			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
+			"rawModeData": ""
+		},
+		{
 			"folder": "187314b4-2412-716e-db30-6dd465654d9d",
 			"id": "984302fe-e708-7642-1beb-6183bff86763",
 			"name": "router-add-interface",
@@ -1401,6 +1481,25 @@
 			"description": "添加member",
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
 			"rawModeData": "{\r\n    \"member\": {\r\n        \"protocol_port\": \"80\",\r\n        \"address\": \"192.168.5.8\",\r\n        \"pool_id\": \"{{lb-pool-id}}\",\r\n        \"admin_state_up\": true\r\n    }\r\n}"
+		},
+		{
+			"id": "a409fc18-0f70-877b-dd19-fc03581d0fcb",
+			"headers": "Content-Type: application/json\nX-Auth-Token: {{X-Auth-Token}}\n",
+			"url": "http://{{controller}}:9696/v2.0/lb/pools/{{lb-pool-id}}/health_monitors",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1449549679133,
+			"name": "monitor-associate-pool",
+			"description": "池关联监控",
+			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
+			"rawModeData": "{\r\n    \"health_monitor\": {\r\n        \"id\": \"{{monitor-id}}\"\r\n    }\r\n}"
 		},
 		{
 			"id": "a9bc9733-189c-64a1-49f3-54190d16ba97",
@@ -1682,6 +1781,24 @@
 			"time": 1449044535976,
 			"name": "secure-groupe-list",
 			"description": "",
+			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
+		},
+		{
+			"id": "d309391e-f8f3-7a20-7e3d-0dcfabad1622",
+			"headers": "Content-Type: application/json\nX-Auth-Token: {{X-Auth-Token}}\n",
+			"url": "http://{{controller}}:9696/v2.0/lb/health_monitors/{{monitor-id}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1449550117490,
+			"name": "monitor-show",
+			"description": "查看监控详细信息",
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
 		},
 		{
