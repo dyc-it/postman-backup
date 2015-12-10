@@ -13,18 +13,20 @@
 			"description": "",
 			"order": [
 				"ab432610-e9fe-099c-0968-7d551b1c7083",
+				"0cd78954-fda0-e087-a9c8-e1b5a87b44f2",
 				"7154ef39-7fab-df4a-50eb-4468eaf3793b",
 				"efe072d4-9116-7b0b-08a4-b052319c298a",
 				"f7dd2e75-3877-d9ea-ae14-808b6d9e7141",
 				"e83f44d8-e4b5-d6b6-451f-686445fc1700",
-				"0cd78954-fda0-e087-a9c8-e1b5a87b44f2",
 				"6c1145db-03d5-f6be-fab1-61efb3aac9fd",
 				"4595af3b-807e-da59-4b97-00f435a4e4bb",
 				"32f66a31-1513-5d61-ab7a-241c5b35b8b5",
 				"a9bc9733-189c-64a1-49f3-54190d16ba97",
 				"33f83673-e5b6-872e-e8f6-82e4d60f3874",
 				"a000ee37-91a6-3add-e108-f1a1171631ee",
-				"f497936f-f6fc-30d7-0a55-bbf60a8bbd70"
+				"f497936f-f6fc-30d7-0a55-bbf60a8bbd70",
+				"23664b68-e06d-5194-c356-8965dd23bcd6",
+				"e5077403-ea4c-9492-0331-edee5124f6ed"
 			],
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
 		},
@@ -47,6 +49,18 @@
 				"7421084a-ebbf-8859-2d19-5c4176567655",
 				"73fb92ad-743e-0efe-051f-b1726c641bc9"
 			],
+			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
+		},
+		{
+			"id": "b73f0ed4-8982-a5f0-12f4-0a7f41c93d41",
+			"name": "ceilmeter",
+			"description": "",
+			"order": [
+				"5a6c733d-4b16-6728-57d8-eb318d383ec4",
+				"f202c190-ce74-a318-dd1c-d6e677a8954f",
+				"6d1cc82c-28ec-547a-b3ae-e001b7dc6628"
+			],
+			"owner": "220378",
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
 		},
 		{
@@ -417,6 +431,26 @@
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
 		},
 		{
+			"id": "23664b68-e06d-5194-c356-8965dd23bcd6",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://{{controller-old}}:5000/v2.0/tokens",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1449631822026,
+			"name": "token-admin-old",
+			"description": "获取admin用户的token",
+			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
+			"folder": "39707613-fdf7-ca9d-4354-1dd6687a48a1",
+			"rawModeData": "{\r\n    \"auth\": {\r\n\t\t\"tenantName\":\"admin\",\r\n        \"passwordCredentials\": {\r\n            \"username\": \"admin\",\r\n            \"password\": \"ele.me\"\r\n        }\r\n    }\r\n}"
+		},
+		{
 			"id": "25a27a05-d680-4c91-c751-dfde1c39f415",
 			"headers": "Content-Type: application/json\nX-Auth-Token: {{X-Auth-Token}}\n",
 			"url": "http://{{controller}}:9696/v2.0/lb/pools",
@@ -771,6 +805,25 @@
 			"rawModeData": "{\r\n    \"security_group\": {\r\n        \"name\": \"new-webservers2\",\r\n        \"description\": \"security group for webservers\"\r\n    }\r\n}"
 		},
 		{
+			"id": "5a6c733d-4b16-6728-57d8-eb318d383ec4",
+			"headers": "Content-Type: application/json\nX-Auth-Token: {{admin-token}}\n",
+			"url": "http://{{controller}}:8777/v2/meters?q.field=user&q.op=eq&q.type=&q.value={{user-id}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1449648000441,
+			"name": "meters-list-by-user",
+			"description": "列出所有meter，根据user过滤",
+			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
+			"responses": []
+		},
+		{
 			"id": "5c2e46b5-f922-6c0f-ccfc-1a02f1417715",
 			"headers": "Content-Type: application/json\nX-Auth-Token: {{X-Auth-Token}}\n",
 			"url": "http://{{controller}}:9696/v2.0/lb/vips/{{vip-id}}",
@@ -1007,10 +1060,29 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1449215569358,
+			"time": 1449647340912,
 			"name": "user-list",
 			"description": "列出所有用户",
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
+		},
+		{
+			"id": "6d1cc82c-28ec-547a-b3ae-e001b7dc6628",
+			"headers": "Content-Type: application/json\nX-Auth-Token: {{admin-token}}\n",
+			"url": "http://{{controller}}:8777/v2/meters/instance/statistics?period=6000&q.field=resource&q.op=eq&q.type=&q.value={{server-id}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1449658737206,
+			"name": "statistics-instance",
+			"description": "统计instance使用量",
+			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
+			"responses": []
 		},
 		{
 			"folder": "187314b4-2412-716e-db30-6dd465654d9d",
@@ -1897,6 +1969,28 @@
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
 		},
 		{
+			"id": "e5077403-ea4c-9492-0331-edee5124f6ed",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://{{controller-old}}:5000/v2.0/tokens",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1449632194245,
+			"name": "token-ceilmeter-old",
+			"description": "获取ceilmeter用户的token",
+			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
+			"folder": "39707613-fdf7-ca9d-4354-1dd6687a48a1",
+			"isFromCollection": true,
+			"collectionRequestId": "e5077403-ea4c-9492-0331-edee5124f6ed",
+			"rawModeData": "{\r\n    \"auth\": {\r\n\t\t\"tenantName\":\"service\",\r\n        \"passwordCredentials\": {\r\n            \"username\": \"ceilmeter\",\r\n            \"password\": \"ceilmeter\"\r\n        }\r\n    }\r\n}"
+		},
+		{
 			"id": "e83f44d8-e4b5-d6b6-451f-686445fc1700",
 			"headers": "Content-Type: application/json\nX-Auth-Token: {{admin-token}}\n",
 			"url": "http://{{controller}}:35357/v2.0/tenants/{{tenant-create-id}}",
@@ -1968,6 +2062,25 @@
 			"description": "创建port",
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
 			"rawModeData": "{\r\n    \"port\": {\r\n        \"network_id\": \"{{network-id-another}}\"\r\n    }\r\n}"
+		},
+		{
+			"id": "f202c190-ce74-a318-dd1c-d6e677a8954f",
+			"headers": "Content-Type: application/json\nX-Auth-Token: {{admin-token}}\n",
+			"url": "http://{{controller}}:8777/v2/meters/instance?q.field=resource&q.op=eq&q.type=&q.value={{server-id}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1449657930875,
+			"name": "sample-instance",
+			"description": "统计instance使用量",
+			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
+			"responses": []
 		},
 		{
 			"id": "f3273806-f979-5767-fce4-1a0344dd0c1e",
