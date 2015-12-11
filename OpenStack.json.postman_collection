@@ -1606,11 +1606,11 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1449721181236,
+			"time": 1449819459930,
 			"name": "token",
 			"description": "",
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
-			"rawModeData": "{\r\n    \"auth\": {\r\n\t\t\"tenantName\":\"muwenjian\",\r\n        \"passwordCredentials\": {\r\n            \"username\": \"muwenjian\",\r\n            \"password\": \"muwenjian\"\r\n        }\r\n    }\r\n}"
+			"rawModeData": "{\r\n    \"auth\": {\r\n\t\t\"tenantName\":\"{{username}}\",\r\n        \"passwordCredentials\": {\r\n            \"username\": \"{{username}}\",\r\n            \"password\": \"{{username}}\"\r\n        }\r\n    }\r\n}"
 		},
 		{
 			"folder": "187314b4-2412-716e-db30-6dd465654d9d",
