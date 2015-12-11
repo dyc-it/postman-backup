@@ -53,7 +53,7 @@
 		},
 		{
 			"id": "b73f0ed4-8982-a5f0-12f4-0a7f41c93d41",
-			"name": "ceilmeter",
+			"name": "ceilometer",
 			"description": "",
 			"order": [
 				"5a6c733d-4b16-6728-57d8-eb318d383ec4",
@@ -74,6 +74,7 @@
 				"43343986-6e11-0121-a076-3703a16fc6d4",
 				"c57fc6f6-f809-409a-2269-90e4a36fbb8e",
 				"06826a2b-6244-ee6d-5bde-6efcb18e3d8c",
+				"e60c569b-d7e4-33cb-fe9f-f0914a5ad0db",
 				"8eefdaad-6ba8-6e59-dddc-9ae3dc9323c6",
 				"e17232e4-73fe-5924-4561-6e34a56e4795",
 				"c3ad9b85-66fb-0ca3-1c5f-2e4cb476db70",
@@ -1068,7 +1069,7 @@
 		{
 			"id": "6d1cc82c-28ec-547a-b3ae-e001b7dc6628",
 			"headers": "Content-Type: application/json\nX-Auth-Token: {{admin-token}}\n",
-			"url": "http://{{controller}}:8777/v2/meters/instance/statistics?period=6000&q.field=resource&q.op=eq&q.type=&q.value={{server-id}}",
+			"url": "http://{{controller}}:8777/v2/meters/instance/statistics?period=86400&q.field=resource&q.op=eq&q.type=&q.value={{server-id}}",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -1078,7 +1079,7 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1449658737206,
+			"time": 1449719317166,
 			"name": "statistics-instance",
 			"description": "统计instance使用量",
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
@@ -1436,11 +1437,11 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1449475272847,
+			"time": 1449721535737,
 			"name": "vips-create",
 			"description": "创建一个vip",
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
-			"rawModeData": "{\r\n    \"vip\": {\r\n        \"protocol\": \"HTTP\",\t\t\t\t\r\n        \"name\": \"vip-demo-1\",\t\t\t\r\n        \"admin_state_up\": true,\t\t\t\r\n        \"subnet_id\": \"{{subnet-id}}\",\t\r\n        \"pool_id\": \"{{lb-pool-id}}\",\t\r\n        \"protocol_port\": \"80\"\t\t\t\r\n    }\r\n}"
+			"rawModeData": "{\r\n    \"vip\": {\r\n        \"protocol\": \"HTTP\",\t\t\t\t\r\n        \"name\": \"vip-demo-1\",\t\t\t\r\n        \"admin_state_up\": true,\t\t\t\r\n        \"subnet_id\": \"{{subnet-id}}\",\t\r\n        \"pool_id\": \"{{lb-pool-id}}\",\r\n\"session_persistence\": {\r\n\"cookie_name\": \"MyAppCookie\",\r\n\"type\": \"APP_COOKIE\"\r\n},\r\n        \"protocol_port\": \"80\"\t\t\t\r\n    }\r\n}"
 		},
 		{
 			"id": "a000ee37-91a6-3add-e108-f1a1171631ee",
@@ -1529,7 +1530,7 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1448698807028,
+			"time": 1449731285522,
 			"name": "volume-create-from-snapshot",
 			"description": "基于snapshot创建一个volume，size的单位是GB",
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
@@ -1605,7 +1606,7 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1448704272080,
+			"time": 1449721181236,
 			"name": "token",
 			"description": "",
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
@@ -1989,6 +1990,25 @@
 			"isFromCollection": true,
 			"collectionRequestId": "e5077403-ea4c-9492-0331-edee5124f6ed",
 			"rawModeData": "{\r\n    \"auth\": {\r\n\t\t\"tenantName\":\"service\",\r\n        \"passwordCredentials\": {\r\n            \"username\": \"ceilmeter\",\r\n            \"password\": \"ceilmeter\"\r\n        }\r\n    }\r\n}"
+		},
+		{
+			"id": "e60c569b-d7e4-33cb-fe9f-f0914a5ad0db",
+			"headers": "Content-Type: application/json\nX-Auth-Token: {{X-Auth-Token}}\n",
+			"url": "http://{{controller}}:8774/v2/{{tenant-id}}/servers",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1449811263278,
+			"name": "server-create-inject",
+			"description": "",
+			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
+			"rawModeData": "{\r\n    \"server\": {\r\n        \"name\": \"test-inject\",\r\n        \"flavorRef\": \"2\",\r\n        \"metadata\": {\r\n            \"imageName\": \"Apache1\"\r\n        },\r\n        \"networks\": [\r\n            {\r\n                \"uuid\": \"{{network-id}}\"\r\n            }\r\n        ],\r\n        \"block_device_mapping_v2\": [\r\n            {\r\n                \"boot_index\": \"0\",\r\n                \"uuid\": \"{{centos6.7-image-id}}\",\r\n                \"volume_size\": \"20\",\r\n                \"source_type\": \"image\",\r\n                \"destination_type\": \"volume\",\r\n                \"delete_on_termination\": true\r\n            }\r\n        ],\r\n\t\t\"user_data\": \"{{user_data}}\",\r\n\t\t\"config_drive\": true\r\n    }\r\n}"
 		},
 		{
 			"id": "e83f44d8-e4b5-d6b6-451f-686445fc1700",
