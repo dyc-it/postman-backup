@@ -58,7 +58,9 @@
 			"order": [
 				"5a6c733d-4b16-6728-57d8-eb318d383ec4",
 				"f202c190-ce74-a318-dd1c-d6e677a8954f",
-				"6d1cc82c-28ec-547a-b3ae-e001b7dc6628"
+				"6d1cc82c-28ec-547a-b3ae-e001b7dc6628",
+				"52f88506-e367-04da-f03c-a31d468d0b76",
+				"d57fba22-8158-d705-e5bb-1381e6a26af9"
 			],
 			"owner": "220378",
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
@@ -102,7 +104,8 @@
 				"2359bbfa-2b25-db9d-5754-ba830e5039b0",
 				"75ae42f0-8380-936a-77b9-300c0e18ab88",
 				"fa96db3b-9a4a-c41c-167a-3a605b6fb3c1",
-				"5e3d6aca-38b9-12df-256d-e807a74d30eb"
+				"5e3d6aca-38b9-12df-256d-e807a74d30eb",
+				"9d038789-de10-f029-a4b5-85d8c0207292"
 			],
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
 		},
@@ -153,7 +156,8 @@
 				"1347c81c-a955-3793-41c0-cfca96e2da46",
 				"c5af0664-4d5b-20dc-5bd0-5c6acace91f0",
 				"60650dd9-63c3-3399-1d30-b8d2de4305a2",
-				"5eeb274c-c4c5-7575-ac68-a500156e76a9"
+				"5eeb274c-c4c5-7575-ac68-a500156e76a9",
+				"dfc1fab0-152e-f2bc-ba9b-d3618d04e9df"
 			],
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
 		},
@@ -768,6 +772,25 @@
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
 		},
 		{
+			"id": "52f88506-e367-04da-f03c-a31d468d0b76",
+			"headers": "Content-Type: application/json\nX-Auth-Token: {{admin-token}}\n",
+			"url": "http://{{controller}}:8777/v2/meters/cpu_util/statistics?period=3600000&q.field=resource&q.op=eq&q.type=&q.value={{server-id}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1451378942060,
+			"name": "statistics-cup_util",
+			"description": "统计instance的CUP使用量",
+			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
+			"responses": []
+		},
+		{
 			"folder": "187314b4-2412-716e-db30-6dd465654d9d",
 			"id": "55ae7365-4af8-264f-2492-ad46a2236cb5",
 			"name": "network-list",
@@ -1079,7 +1102,7 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1449719317166,
+			"time": 1450949345739,
 			"name": "statistics-instance",
 			"description": "统计instance使用量",
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
@@ -1404,6 +1427,25 @@
 			"helperAttributes": {},
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
 			"rawModeData": "{\r\n\"subnet_id\": \"{{subnet-id}}\"\r\n}"
+		},
+		{
+			"id": "9d038789-de10-f029-a4b5-85d8c0207292",
+			"headers": "Content-Type: application/json\nX-Auth-Token: f322f2bc1316486d9eeb71aee9b20907\n",
+			"url": "http://172.16.6.110:8774/v2/67bb3a7e72564d9eb615ae4bf5cf203f/servers/c0db67e8-d38c-4f88-9fe4-05880fae0729/action",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1451459174564,
+			"name": "snapshot-create copy",
+			"description": "创建虚拟机快照",
+			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
+			"rawModeData": "{\r\n    \"createImage\": {\r\n        \"name\": \"server1-snapshot\",\r\n        \"container_format\": \"bare\",\r\n        \"disk_format\": \"raw\",\r\n        \"metadata\": {\r\n            \"instance_uuid\": \"1234\"\r\n        }\r\n    }\r\n}"
 		},
 		{
 			"id": "9e465b4b-e7c5-8dc3-7b8d-cb96a0710e90",
@@ -1875,6 +1917,25 @@
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
 		},
 		{
+			"id": "d57fba22-8158-d705-e5bb-1381e6a26af9",
+			"headers": "Content-Type: application/json\nX-Auth-Token: {{admin-token}}\n",
+			"url": "http://172.16.6.110:8777/v2/meters/cpu_util/statistics?q.field=resource&q.field=timestamp&q.op=eq&q.op=ge&q.type=&q.type=&q.value=c0db67e8-d38c-4f88-9fe4-05880fae0729&q.value=2015-12-31T09:06:07&period=300",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1451553746429,
+			"name": "statistics-cup_util copy",
+			"description": "统计instance的CUP使用量",
+			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
+			"responses": []
+		},
+		{
 			"id": "d6964b13-af33-4e91-9881-e30bbaae093a",
 			"headers": "Content-Type: application/json\nX-Auth-Token: {{X-Auth-Token}}\n",
 			"url": "http://{{controller}}:8776/v2/{{tenant-id}}/volumes/{{delete-volume-id}}",
@@ -1949,6 +2010,25 @@
 			"currentHelper": "normal",
 			"helperAttributes": {},
 			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534"
+		},
+		{
+			"id": "dfc1fab0-152e-f2bc-ba9b-d3618d04e9df",
+			"headers": "Content-Type: application/json\nX-Auth-Token: {{X-Auth-Token}}\n",
+			"url": "http://{{controller}}:9696/v2.0/security-group-rules",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1451900440429,
+			"name": "secure-groupe-rule-icmp",
+			"description": "",
+			"collectionId": "ab63bf14-c1be-6835-7a13-c2d5171b8534",
+			"rawModeData": "{\r\n    \"security_group_rule\": {\r\n        \"direction\": \"ingress\",\r\n        \"port_range_min\": null,\r\n        \"ethertype\": \"IPv4\",\r\n        \"port_range_max\": null,\r\n        \"protocol\": \"icmp\",\r\n        \"security_group_id\": \"{{security-group-id}}\"\r\n    }\r\n}"
 		},
 		{
 			"folder": "039b264f-10f0-f1aa-57b4-29d409399800",
